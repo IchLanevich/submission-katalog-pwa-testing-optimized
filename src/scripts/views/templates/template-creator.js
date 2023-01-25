@@ -1,10 +1,12 @@
-import CONFIG from '../../globals/config';
-import '../../components/customer-review';
+import CONFIG from "../../globals/config";
+import "../../components/customer-review";
 
 const createRestaurantDetailTemplate = (restaurant) => `
   <article id="restaurant-details" tabindex='0'>
   <h2 tabindex='0' class="restaurant__title">${restaurant.name}</h2>
-  <img tabindex='0' class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="${restaurant.name} picture"/>
+  <img tabindex='0' class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL}/${
+  restaurant.pictureId
+}" alt="${restaurant.name} picture"/>
   <h3 tabindex='0' class="restaurant-heading-text">Information</h3>
   <div class="restaurant__info">
     <div class="restaurant__crumb">
@@ -17,7 +19,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </div>
     <div class="restaurant__crumb">
     <h4 tabindex='0'>Categories</h4>
-    <ul class="restaurant__categories">${restaurant.categories.map((category) => `<li tabindex='0' class="restaurant__category">${category.name}</li>`).join('')}
+    <ul class="restaurant__categories">${restaurant.categories
+      .map(
+        (category) =>
+          `<li tabindex='0' class="restaurant__category">${category.name}</li>`
+      )
+      .join("")}
     </ul>
     </div>
     <div class="restaurant__crumb">
@@ -37,13 +44,17 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <div class="restaurant-menus__drinks">
   <h4 tabindex="0" class="restaurant-menus__title">Drinks</h4>
     <ul class="restaurant-menus__drinks__list">
-    ${restaurant.menus.drinks.map((drink) => `<li tabindex="0">${drink.name}</li>`).join('')}
+    ${restaurant.menus.drinks
+      .map((drink) => `<li tabindex="0">${drink.name}</li>`)
+      .join("")}
   </ul>
   </div>
   <div class="restaurant-menus__drinks">
   <h4 tabindex="0" class="restaurant-menus__title">Foods</h4>
     <ul class="restaurant-menus__foods__list">
-      ${restaurant.menus.foods.map((food) => `<li tabindex="0">${food.name}</li>`).join('')}
+      ${restaurant.menus.foods
+        .map((food) => `<li tabindex="0">${food.name}</li>`)
+        .join("")}
     </ul>
   </div>
   </div>
