@@ -3,6 +3,7 @@ import UrlParser from "../../routes/url-parser";
 import "../../components/customer-review";
 import { createRestaurantDetailTemplate } from "../templates/template-creator";
 import FavoriteButtonPresenter from "../../utils/favorite-button-presenter";
+import FavoriteRestaurantIdb from "../../data/favorite-restaurant-idb";
 
 const Detail = {
   async render() {
@@ -25,7 +26,7 @@ const Detail = {
     customerReview.restaurantData = restaurant;
     customerReviewContainer.appendChild(customerReview);
 
-    FavoriteButtonInitiator.init({
+    FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector(
         "#favoriteButtonContainer"
       ),
