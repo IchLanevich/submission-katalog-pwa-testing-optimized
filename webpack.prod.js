@@ -54,9 +54,5 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-      analyzerPort: 3232,
-    }),
   ],
 });
