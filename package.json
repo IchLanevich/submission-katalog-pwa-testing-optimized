@@ -12,7 +12,7 @@
     "build-serve": "npm run build && npm run serve",
     "e2e": "codeceptjs run --steps",
     "build-image": "node sharp.js",
-    "deploy": "webpack --mode production && webpack-bundle-analyzer dist/stats.json --no-open"
+    "deploy": "webpack --config webpack.prod.js && webpack-bundle-analyzer dist/stats.json --no-open"
   },
   "keywords": [],
   "author": "",
