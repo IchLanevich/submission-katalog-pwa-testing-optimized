@@ -41,7 +41,7 @@ module.exports = {
       ],
     }),
     new WorkboxWebpackPlugin.GenerateSW({
-      swDest: "./sw.bundlex.js",
+      swDest: "./sw.bundle.js",
     }),
   ],
 };

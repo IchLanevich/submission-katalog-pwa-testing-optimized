@@ -1,18 +1,16 @@
-import CONFIG from '../globals/config';
+import CONFIG from "../globals/config";
 
 class RestaurantItem extends HTMLElement {
   /**
-     * @param {any} data
-     */
+   * @param {any} data
+   */
   set restaurantData(data) {
     this._restaurantData = data;
     this._render();
   }
 
   _render() {
-    const {
-      name, pictureId, rating, description, id,
-    } = this._restaurantData;
+    const { name, pictureId, rating, description, id } = this._restaurantData;
 
     this.innerHTML = `
         <div class="restaurant-item">
@@ -31,4 +29,4 @@ class RestaurantItem extends HTMLElement {
   }
 }
 
-customElements.define('restaurant-item', RestaurantItem);
+customElements.define("restaurant-item", RestaurantItem);

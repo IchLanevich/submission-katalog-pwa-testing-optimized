@@ -7,9 +7,10 @@
     "lint": "eslint ./src",
     "start-dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "serve": "http-server dist --port 2000",
+    "serve": "http-server dist",
     "test": "karma start",
-    "build-serve": "npm run build && npm run serve"
+    "build-serve": "npm run build && npm run serve",
+    "e2e": "codeceptjs run --steps --verbose"
   },
   "keywords": [],
   "author": "",

@@ -6,7 +6,7 @@ const swRegister = async () => {
     return;
   }
 
-  const wb = new WorkboxWindow.Workbox("./sw.bundlex.js");
+  const wb = new WorkboxWindow.Workbox("./sw.bundle.js");
 
   try {
     await wb.register();

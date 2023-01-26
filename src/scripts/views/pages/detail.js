@@ -16,17 +16,17 @@ const Detail = {
   },
 
   async afterRender() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const url = await UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
-    const restaurantData = restaurant.restaurant;
+    const restaurantData = await restaurant.restaurant;
     const restaurantContainer = document.querySelector("#restaurant");
 
     const customerReviewContainer = document.querySelector("#customer-review");
     const customerReview = document.createElement("customer-review");
-    customerReview.restaurantData = restaurant;
+    customerReview.restaurantData = await restaurant;
     customerReviewContainer.appendChild(customerReview);
 
-    FavoriteButtonPresenter.init({
+    await FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector(
         "#favoriteButtonContainer"
       ),
