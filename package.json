@@ -38,6 +38,7 @@
     "workbox-window": "^6.5.4"
   },
   "devDependencies": {
+    "css-minimizer-webpack-plugin": "^4.2.2",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",

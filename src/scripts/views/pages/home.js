@@ -1,5 +1,5 @@
-import RestaurantApiSource from '../../data/restaurant-api-source';
-import '../../components/restaurant-item';
+import RestaurantApiSource from "../../data/restaurant-api-source";
+import "../../components/restaurant-item";
 
 const Home = {
   async render() {
@@ -20,18 +20,18 @@ const Home = {
   async afterRender() {
     const restaurants = await RestaurantApiSource.restaurantList();
     if (restaurants) {
-      const restaurantsContainer = document.querySelector('#restaurants');
+      const restaurantsContainer = document.querySelector("#restaurants");
 
       restaurants.forEach((restaurant) => {
-        const restaurantItem = document.createElement('restaurant-item');
+        const restaurantItem = document.createElement("restaurant-item");
         restaurantItem.restaurantData = restaurant;
         restaurantsContainer.appendChild(restaurantItem);
       });
     } else {
-      const content = document.querySelector('.content');
-      const title = document.createElement('h2');
-      title.classList.add('error-text');
-      title.textContent = 'Unable to fetch';
+      const content = document.querySelector(".content");
+      const title = document.createElement("h2");
+      title.classList.add("error-text");
+      title.textContent = "Unable to fetch";
       content.appendChild(title);
     }
   },

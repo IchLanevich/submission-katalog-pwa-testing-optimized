@@ -59,3 +59,22 @@ Scenario("disliking one restaurant", async ({ I }) => {
   I.amOnPage("/#/favorites");
   I.see("You havent add your favorite restaurant", ".error-text");
 });
+
+Scenario("add review", async ({ I }) => {
+  I.amOnPage("/");
+  I.waitForElement(".restaurant-item__content a", 5);
+
+  I.click(locate(".restaurant-item__content a").first());
+
+  I.waitForElement("#customer-review", 5);
+
+  I.seeElement("#review-form");
+
+  I.fillField("#userName", "Ismail");
+  I.fillField("#review", "Mantap");
+  I.click(".submit-btn");
+
+  I.waitForElement(".toastify.on", 3);
+
+  I.seeElement(".toastify.on");
+});
