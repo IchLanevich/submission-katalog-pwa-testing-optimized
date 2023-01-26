@@ -1,4 +1,4 @@
-import CONFIG from "../globals/config";
+import CONFIG from '../globals/config';
 
 class RestaurantItem extends HTMLElement {
   /**
@@ -10,13 +10,15 @@ class RestaurantItem extends HTMLElement {
   }
 
   _render() {
-    const { name, pictureId, rating, description, id } = this._restaurantData;
+    const {
+      name, pictureId, rating, description, id,
+    } = this._restaurantData;
 
     this.innerHTML = `
         <div class="restaurant-item">
             <div class="restaurant-item__header">
                 <picture>
-                  <source media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL}/small/${pictureId}">
+                  <source media="(max-width: 600px)" data-srcset="${CONFIG.BASE_IMAGE_URL}/small/${pictureId}">
                   <img class="lazyload restaurant-item__header__poster" alt="${name} picture"
                   src="http://via.placeholder.com/640x360" data-src="${CONFIG.BASE_IMAGE_URL}/medium/${pictureId}"> 
                 </picture>
@@ -32,4 +34,4 @@ class RestaurantItem extends HTMLElement {
   }
 }
 
-customElements.define("restaurant-item", RestaurantItem);
+customElements.define('restaurant-item', RestaurantItem);

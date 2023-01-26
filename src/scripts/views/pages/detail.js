@@ -1,9 +1,9 @@
-import RestaurantApiSource from "../../data/restaurant-api-source";
-import UrlParser from "../../routes/url-parser";
-import "../../components/customer-review";
-import { createRestaurantDetailTemplate } from "../templates/template-creator";
-import FavoriteButtonPresenter from "../../utils/favorite-button-presenter";
-import FavoriteRestaurantIdb from "../../data/favorite-restaurant-idb";
+import RestaurantApiSource from '../../data/restaurant-api-source';
+import UrlParser from '../../routes/url-parser';
+import '../../components/customer-review';
+import { createRestaurantDetailTemplate } from '../templates/template-creator';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 
 const Detail = {
   async render() {
@@ -19,23 +19,23 @@ const Detail = {
     const url = await UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
     const restaurantData = await restaurant.restaurant;
-    const restaurantContainer = document.querySelector("#restaurant");
+    const restaurantContainer = document.querySelector('#restaurant');
 
-    const customerReviewContainer = document.querySelector("#customer-review");
-    const customerReview = document.createElement("customer-review");
+    const customerReviewContainer = document.querySelector('#customer-review');
+    const customerReview = document.createElement('customer-review');
     customerReview.restaurantData = await restaurant;
     customerReviewContainer.appendChild(customerReview);
 
     await FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector(
-        "#favoriteButtonContainer"
+        '#favoriteButtonContainer',
       ),
       favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: restaurantData,
     });
 
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(
-      restaurant.restaurant
+      restaurant.restaurant,
     );
   },
 };

@@ -1,4 +1,4 @@
-import API_ENDPOINT from "../globals/api-endpoint";
+import API_ENDPOINT from '../globals/api-endpoint';
 
 class RestaurantApiSource {
   static async restaurantList() {
@@ -13,17 +13,17 @@ class RestaurantApiSource {
       return response.json();
     } catch (error) {
       Toastify({
-        text: "❌ Unable to fetch data",
+        text: '❌ Unable to fetch data',
         duration: 60000,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
+        gravity: 'top', // `top` or `bottom`
+        position: 'center', // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-          color: "#13191b",
-          fontWeight: "600",
-          background: "#dedede",
+          color: '#13191b',
+          fontWeight: '600',
+          background: '#dedede',
         },
-        onClick: function () {}, // Callback after click
+        onClick() {}, // Callback after click
       }).showToast();
     }
   }

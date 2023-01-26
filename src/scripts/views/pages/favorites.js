@@ -1,5 +1,5 @@
-import FavoriteRestaurantIdb from "../../data/favorite-restaurant-idb";
-import "../../components/restaurant-item";
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import '../../components/restaurant-item';
 
 const Favorites = {
   async render() {
@@ -18,18 +18,18 @@ const Favorites = {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
 
     if (restaurants.length === 0) {
-      console.log("empty");
-      const content = document.querySelector(".content");
+      console.log('empty');
+      const content = document.querySelector('.content');
       console.log(content);
-      const title = document.createElement("h2");
-      title.classList.add("error-text");
-      title.textContent = "You havent add your favorite restaurant";
+      const title = document.createElement('h2');
+      title.classList.add('error-text');
+      title.textContent = 'You havent add your favorite restaurant';
       content.appendChild(title);
     } else {
-      const restaurantsContainer = document.querySelector("#restaurants");
+      const restaurantsContainer = document.querySelector('#restaurants');
 
       restaurants.forEach((restaurant) => {
-        const restaurantItem = document.createElement("restaurant-item");
+        const restaurantItem = document.createElement('restaurant-item');
         restaurantItem.restaurantData = restaurant;
         restaurantsContainer.appendChild(restaurantItem);
       });
