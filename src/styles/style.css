@@ -36,6 +36,7 @@
   .error-text{
     display: flex;
     justify-content: center;
+    text-align: center;
   }
 
   .app-bar {
