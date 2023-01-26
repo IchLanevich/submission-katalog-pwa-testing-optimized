@@ -4,9 +4,14 @@ import "../../components/customer-review";
 const createRestaurantDetailTemplate = (restaurant) => `
   <article id="restaurant-details" tabindex='0'>
   <h2 tabindex='0' class="restaurant__title">${restaurant.name}</h2>
-  <img tabindex='0' class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL}/${
-  restaurant.pictureId
-}" alt="${restaurant.name} picture"/>
+  <picture>
+  <source media="(max-width: 600px)" srcset="${
+    CONFIG.BASE_IMAGE_URL
+  }/medium/${pictureId}">
+    <img tabindex='0' class="restaurant__poster" src="${
+      CONFIG.BASE_IMAGE_URL
+    }/large/${restaurant.pictureId}" alt="${restaurant.name} picture"/>
+  </picture>
   <h3 tabindex='0' class="restaurant-heading-text">Information</h3>
   <div class="restaurant__info">
     <div class="restaurant__crumb">
