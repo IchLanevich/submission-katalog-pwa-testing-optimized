@@ -1,6 +1,6 @@
 import * as TestFactories from "./helpers/testFactories";
 import FavoriteRestaurantIdb from "../src/scripts/data/favorite-restaurant-idb";
-import FavoriteButtonInitiator from "../src/scripts/utils/favorite-button-initiator";
+import FavoriteButtonPresenter from "../src/scripts/utils/favorite-button-presenter";
 
 describe("Liking A Restaurant", () => {
   const addLikeButtonContainer = () => {
@@ -41,11 +41,10 @@ describe("Liking A Restaurant", () => {
   it("should not add a restaurant again when its already liked", async () => {
     await TestFactories.createFavoriteButtonPresenterWithRestaurant({ id: 1 });
 
-    // Tambahkan restaurant dengan ID 1 ke daftar restaurant yang disukai
     await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
-    // Simulasikan pengguna menekan tombol suka restaurant
+
     document.querySelector("#favoriteButton").dispatchEvent(new Event("click"));
-    // tidak ada restaurant yang ganda
+
     expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([{ id: 1 }]);
 
     FavoriteRestaurantIdb.deleteRestaurant(1);
@@ -53,7 +52,9 @@ describe("Liking A Restaurant", () => {
 
   it("should not add a restaurant when it has no id", async () => {
     await TestFactories.createFavoriteButtonPresenterWithRestaurant({});
+
     document.querySelector("#favoriteButton").dispatchEvent(new Event("click"));
+
     expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([]);
   });
 });

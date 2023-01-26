@@ -1,6 +1,6 @@
 import * as TestFactories from "./helpers/testFactories";
-import FavoriteButtonInitiator from "../src/scripts/utils/favorite-button-initiator";
 import FavoriteRestaurantIdb from "../src/scripts/data/favorite-restaurant-idb";
+import FavoriteButtonPresenter from "../src/scripts/utils/favorite-button-presenter";
 
 describe("Unfavoriting A Restaurant", () => {
   const addFavoriteButtonContainer = () => {
