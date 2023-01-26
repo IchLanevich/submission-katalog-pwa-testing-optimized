@@ -1,6 +1,6 @@
-import API_ENDPOINT from "../globals/api-endpoint";
-import postReview from "../utils/fetch-helper";
-import Toastify from "toastify-js";
+import Toastify from 'toastify-js';
+import API_ENDPOINT from '../globals/api-endpoint';
+import postReview from '../utils/fetch-helper';
 
 class CustomerReview extends HTMLElement {
   /**
@@ -21,14 +21,14 @@ class CustomerReview extends HTMLElement {
         </div>
         <div class="customer-reviews__list">
           ${restaurant.customerReviews
-            .map(
-              (review) => `<div tabindex="0" class="customer-review-card">
+    .map(
+      (review) => `<div tabindex="0" class="customer-review-card">
               <p class="customer-review__name">${review.name}</p>
               <p class="customer-review__description">${review.review}</p>
               <p class="customer-review__date">${review.date}</p>
-            </div>`
-            )
-            .join("")}
+            </div>`,
+    )
+    .join('')}
         </div>
     </div>
     <div class="form-wrapper">
@@ -48,25 +48,25 @@ class CustomerReview extends HTMLElement {
   }
 
   connectedCallback() {
-    const reviewForm = document.querySelector("#review-form");
-    const username = document.querySelector("#userName");
-    const review = document.querySelector("#review");
+    const reviewForm = document.querySelector('#review-form');
+    const username = document.querySelector('#userName');
+    const review = document.querySelector('#review');
 
-    reviewForm.addEventListener("submit", async (e) => {
+    reviewForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       Toastify({
-        text: "✔️ Review submitted",
+        text: '✔️ Review submitted',
         duration: 2000,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: 'top',
+        position: 'center',
+        stopOnFocus: true,
         style: {
-          color: "#13191b",
-          fontWeight: "600",
-          background: "#dedede",
+          color: '#13191b',
+          fontWeight: '600',
+          background: '#dedede',
         },
-        onClick: function () {}, // Callback after click
+        onClick() {},
       }).showToast();
 
       const data = {
@@ -83,4 +83,4 @@ class CustomerReview extends HTMLElement {
   }
 }
 
-customElements.define("customer-review", CustomerReview);
+customElements.define('customer-review', CustomerReview);

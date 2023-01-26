@@ -1,5 +1,5 @@
-import CONFIG from "../../globals/config";
-import "../../components/customer-review";
+import CONFIG from '../../globals/config';
+import '../../components/customer-review';
 
 const createRestaurantDetailTemplate = (restaurant) => `
   <article id="restaurant-details" tabindex='0'>
@@ -8,9 +8,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <source media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL}/medium/${
   restaurant.pictureId
 }">
-    <img tabindex='0' class="lazyload restaurant__poster" data-src="${
-      CONFIG.BASE_IMAGE_URL
-    }/large/${
+    <img tabindex='0' class="lazyload restaurant__poster" data-src="${CONFIG.BASE_IMAGE_URL}/large/${
   restaurant.pictureId
 }" src="http://via.placeholder.com/1024x768" alt="${restaurant.name} picture"/>
   </picture>
@@ -27,11 +25,10 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <div class="restaurant__crumb">
     <h4 tabindex='0'>Categories</h4>
     <ul class="restaurant__categories">${restaurant.categories
-      .map(
-        (category) =>
-          `<li tabindex='0' class="restaurant__category">${category.name}</li>`
-      )
-      .join("")}
+    .map(
+      (category) => `<li tabindex='0' class="restaurant__category">${category.name}</li>`,
+    )
+    .join('')}
     </ul>
     </div>
     <div class="restaurant__crumb">
@@ -52,16 +49,16 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <h4 tabindex="0" class="restaurant-menus__title">Drinks</h4>
     <ul class="restaurant-menus__drinks__list">
     ${restaurant.menus.drinks
-      .map((drink) => `<li tabindex="0">${drink.name}</li>`)
-      .join("")}
+    .map((drink) => `<li tabindex="0">${drink.name}</li>`)
+    .join('')}
   </ul>
   </div>
   <div class="restaurant-menus__drinks">
   <h4 tabindex="0" class="restaurant-menus__title">Foods</h4>
     <ul class="restaurant-menus__foods__list">
       ${restaurant.menus.foods
-        .map((food) => `<li tabindex="0">${food.name}</li>`)
-        .join("")}
+    .map((food) => `<li tabindex="0">${food.name}</li>`)
+    .join('')}
     </ul>
   </div>
   </div>

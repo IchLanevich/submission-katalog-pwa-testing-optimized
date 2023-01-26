@@ -36,6 +36,7 @@
   .error-text{
     display: flex;
     justify-content: center;
+    text-align: center;
   }
 
   .app-bar {
@@ -120,8 +121,19 @@
     height: 100%;
     height: 400px;
     color: white;
-    background: linear-gradient(to right, rgba(47, 45, 65, 0.7), rgba(47, 45, 65, 0.7)), url(//cdn.otstatic.com/cfe/11/images/11-1380px-280576.jpg);
-    background-size: cover;
+    object-fit: cover;
+    background: linear-gradient(to right, rgba(47, 45, 65, 0.7), rgba(47, 45, 65, 0.7)), url(https://ik.imagekit.io/ichlanevich/hero-image-second-resized.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1674726685140);
+  }
+
+  .hero-bg{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    max-height: 400px;
+    background-color: #3097d7;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
 
   .hero-headline{
@@ -445,6 +457,9 @@
   footer a {
     text-decoration: none;
     color:rgb(25, 136, 205);
+    display: inline-block;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   footer a:hover {

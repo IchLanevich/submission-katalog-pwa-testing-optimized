@@ -1,9 +1,9 @@
-const sharp = require("sharp");
-const fs = require("fs");
-const path = require("path");
+const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
 
-const target = path.resolve(__dirname, "src/public/images");
-const destination = path.resolve(__dirname, "dist/images");
+const target = path.resolve(__dirname, 'src/public/images');
+const destination = path.resolve(__dirname, 'dist/images');
 
 if (!fs.existsSync(destination)) {
   fs.mkdirSync(destination);
@@ -11,20 +11,20 @@ if (!fs.existsSync(destination)) {
 
 fs.readdirSync(target).forEach((image) => {
   sharp(`${target}/${image}`)
-    .resize(800)
+    .resize(1366)
     .toFile(
       path.resolve(
         __dirname,
-        `${destination}/${image.split(".").slice(0, -1).join(".")}-large.jpg`
-      )
+        `${destination}/${image.split('.').slice(0, -1).join('.')}-large.jpg`,
+      ),
     );
 
   sharp(`${target}/${image}`)
-    .resize(480)
+    .resize(768)
     .toFile(
       path.resolve(
         __dirname,
-        `${destination}/${image.split(".").slice(0, -1).join(".")}-small.jpg`
-      )
+        `${destination}/${image.split('.').slice(0, -1).join('.')}-small.jpg`,
+      ),
     );
 });
