@@ -2,7 +2,8 @@ import RestaurantApiSource from "../../data/restaurant-api-source";
 import UrlParser from "../../routes/url-parser";
 import "../../components/customer-review";
 import { createRestaurantDetailTemplate } from "../templates/template-creator";
-import FavoriteButtonInitiator from "../../utils/favorite-button-initiator";
+import FavoriteButtonPresenter from "../../utils/favorite-button-presenter";
+import FavoriteRestaurantIdb from "../../data/favorite-restaurant-idb";
 
 const Detail = {
   async render() {
@@ -15,20 +16,21 @@ const Detail = {
   },
 
   async afterRender() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const url = await UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
-    const restaurantData = restaurant.restaurant;
+    const restaurantData = await restaurant.restaurant;
     const restaurantContainer = document.querySelector("#restaurant");
 
     const customerReviewContainer = document.querySelector("#customer-review");
     const customerReview = document.createElement("customer-review");
-    customerReview.restaurantData = restaurant;
+    customerReview.restaurantData = await restaurant;
     customerReviewContainer.appendChild(customerReview);
 
-    FavoriteButtonInitiator.init({
+    await FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector(
         "#favoriteButtonContainer"
       ),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: restaurantData,
     });
 

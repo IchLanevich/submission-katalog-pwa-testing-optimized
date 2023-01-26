@@ -1,24 +1,25 @@
-import CONFIG from '../globals/config';
+import CONFIG from "../globals/config";
 
 class RestaurantItem extends HTMLElement {
   /**
-     * @param {any} data
-     */
+   * @param {any} data
+   */
   set restaurantData(data) {
     this._restaurantData = data;
     this._render();
   }
 
   _render() {
-    const {
-      name, pictureId, rating, description, id,
-    } = this._restaurantData;
+    const { name, pictureId, rating, description, id } = this._restaurantData;
 
     this.innerHTML = `
         <div class="restaurant-item">
             <div class="restaurant-item__header">
-                <img class="restaurant-item__header__poster" alt="${name} picture"
-                src="${CONFIG.BASE_IMAGE_URL}/${pictureId}"> 
+                <picture>
+                  <source media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL}/small/${pictureId}">
+                  <img class="lazyload restaurant-item__header__poster" alt="${name} picture"
+                  src="http://via.placeholder.com/640x360" data-src="${CONFIG.BASE_IMAGE_URL}/medium/${pictureId}"> 
+                </picture>
             <div class="restaurant-item__header__rating">
                 <p>⭐️<span class="restaurant-item__header__rating__score">${rating}</span></p>
             </div >
@@ -31,4 +32,4 @@ class RestaurantItem extends HTMLElement {
   }
 }
 
-customElements.define('restaurant-item', RestaurantItem);
+customElements.define("restaurant-item", RestaurantItem);

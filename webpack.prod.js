@@ -1,7 +1,6 @@
 const { merge } = require("webpack-merge");
 const path = require("path");
 const common = require("./webpack.common");
-const WebpackPwaManifest = require("webpack-pwa-manifest");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -10,6 +9,29 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   devtool: "source-map",
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      minSize: 20000,
+      maxSize: 70000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: "~",
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
@@ -31,21 +53,10 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    // new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
-    new WebpackPwaManifest({
-      name: "My Progressive Web App",
-      short_name: "MyPWA",
-      description: "My awesome Progressive Web App!",
-      background_color: "#ffffff",
-      crossorigin: "use-credentials", //can be null, use-credentials or anonymous
-      icons: [
-        {
-          src: path.resolve("src/public/icons/icon-512x512.png"),
-          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-        },
-      ],
+    new BundleAnalyzerPlugin({
+      analyzerPort: 3232,
     }),
   ],
 });
