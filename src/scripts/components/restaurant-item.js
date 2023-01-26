@@ -20,7 +20,7 @@ class RestaurantItem extends HTMLElement {
                 <picture>
                   <source media="(max-width: 600px)" data-srcset="${CONFIG.BASE_IMAGE_URL}/small/${pictureId}">
                   <img class="lazyload restaurant-item__header__poster" alt="${name} picture"
-                  src="http://via.placeholder.com/640x360" data-src="${CONFIG.BASE_IMAGE_URL}/medium/${pictureId}"> 
+                  src="http://via.placeholder.com/640x360" data-src="${CONFIG.BASE_IMAGE_URL}/small/${pictureId}"> 
                 </picture>
             <div class="restaurant-item__header__rating">
                 <p>⭐️<span class="restaurant-item__header__rating__score">${rating}</span></p>
