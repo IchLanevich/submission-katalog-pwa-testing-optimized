@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
 * {
     padding: 0;
     margin: 0;
@@ -37,6 +39,19 @@
     display: flex;
     justify-content: center;
     text-align: center;
+  }
+
+  #hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    background: linear-gradient(to right, rgba(47, 45, 65, 0.7), rgba(47, 45, 65, 0.7)), url(https://ik.imagekit.io/ichlanevich/hero-image-second-resized.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1674726685140);
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    height: 400px;
+    color: white;
   }
 
   .app-bar {
@@ -112,18 +127,6 @@
   /*
     Main Content
   */
-   
-  #hero{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    height: 400px;
-    color: white;
-    object-fit: cover;
-    background: linear-gradient(to right, rgba(47, 45, 65, 0.7), rgba(47, 45, 65, 0.7)), url(https://ik.imagekit.io/ichlanevich/hero-image-second-resized.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1674726685140);
-  }
 
   .hero-bg{
     display: flex;
@@ -436,6 +439,11 @@
     font-size: 18px;
     color: white;
     cursor: pointer;
+  }
+
+  .star-icon{
+    width: 24px;
+    height: 24px;
   }
 
   /*
