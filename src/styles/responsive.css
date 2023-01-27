@@ -1,8 +1,4 @@
 @media screen and (min-width: 600px) {
-  #hero{
-    background: linear-gradient(to right, rgba(47, 45, 65, 0.7), rgba(47, 45, 65, 0.7)), url(https://ik.imagekit.io/ichlanevich/hero-image-second-small.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1674726474645);
-    object-fit: cover;
-  }
 
     .app-bar {
       grid-template-columns: 1fr auto;
@@ -64,6 +60,12 @@
   }
    
   @media screen and (max-width: 600px) {
+
+    #hero{
+      background: linear-gradient(to right, rgba(47, 45, 65, 0.7), rgba(47, 45, 65, 0.7)), url(https://ik.imagekit.io/ichlanevich/hero-image-second-small.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1674726474645);
+      object-fit: cover;
+    }
+
     .app-bar{
       display: flex;
       justify-content: space-between;
